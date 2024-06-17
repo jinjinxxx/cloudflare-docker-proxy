@@ -1,4 +1,5 @@
 import DOCS from './help.html'
+import ICO from './favicon.ico'
 
 addEventListener("fetch", (event) => {
   event.passThroughOnException();
@@ -36,7 +37,14 @@ async function handleRequest(request) {
     );
   }
   // return docs
-  if (url.pathname === "/") {
+  if (url.pathname === "/favicon.ico") {
+    return new Response(ICO, {
+      status: 200,
+      headers: {
+        "content-type": "image/x-icon"
+      }
+    });
+  } else if (url.pathname === "/") {
     return new Response(DOCS, {
       status: 200,
       headers: {
@@ -44,6 +52,7 @@ async function handleRequest(request) {
       }
     });
   }
+
   const isDockerHub = upstream == dockerHub;
   const authorization = request.headers.get("Authorization");
   if (url.pathname == "/v2/") {
