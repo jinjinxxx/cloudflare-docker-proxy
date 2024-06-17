@@ -1,5 +1,4 @@
 import DOCS from './help.html'
-import ICO from './favicon.ico'
 
 addEventListener("fetch", (event) => {
   event.passThroughOnException();
@@ -37,14 +36,7 @@ async function handleRequest(request) {
     );
   }
   // return docs
-  if (url.pathname === "/favicon.ico") {
-    return new Response(ICO, {
-      status: 200,
-      headers: {
-        "content-type": "image/x-icon"
-      }
-    });
-  } else if (url.pathname === "/") {
+  if (url.pathname === "/") {
     return new Response(DOCS, {
       status: 200,
       headers: {
