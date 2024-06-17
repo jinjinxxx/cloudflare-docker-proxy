@@ -13,7 +13,7 @@ TARGET_UPSTREAM = "https://registry-1.docker.io"
 [env.production]
 name = "cloudflare-docker-proxy"
 routes = [
-  { pattern = "docker.mirror.qifengle.fun", custom_domain = true },
+  { pattern = "docker-mirror.qifengle.fun", custom_domain = true },
 ]
 
 [env.production.vars]
